@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APTIVRA - الذكاء الاصطناعي والأمن السيبراني | AI & Cybersecurity Hub</title>
+    <meta name="description" content="منصة APTIVRA العالمية الرائدة في تحليلات الذكاء الاصطناعي، الأمن السيبراني، والدورات المتقدمة المعتمدة على تقارير عالمية موثوقة.">
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-secondary: #121a2d;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-purple: #7f00ff;
+            --accent-green: #00e676;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --font-family: 'Cairo', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-box i {
+            font-size: 1.8rem;
+            color: var(--accent-cyan);
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .lang-selector {
+            background: var(--bg-secondary);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+            padding: 5px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 140px 1.5rem 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #000;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 1px solid var(--card-border);
+            cursor: pointer;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Ad Banner Placeholder */
+        .ad-banner {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--card-border);
+            border-radius: 10px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Agent Status Dashboard */
+        .agent-status-box {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        /* Grid Sections */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 60px 0 30px;
+            position: relative;
+        }
+
+        .cards-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 0 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-50px);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* Courses Marketplace */
+        .price-tag {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+        }
+
+        .paypal-btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: #0070ba;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s ease;
+        }
+
+        .paypal-btn:hover {
+            background: #005ea6;
+        }
+
+        /* Contact & Support Section */
+        .contact-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            padding: 30px;
+            border-radius: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: var(--bg-primary);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--card-border);
+            padding: 40px 1.5rem 20px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-box">
+                <i class="fa-solid fa-brain-circuit"></i>
+                <div class="logo-text">APTIVRA</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#intel">التقارير والأبحاث</a></li>
+                <li><a href="#courses">الدورات والشهادات</a></li>
+                <li><a href="#agent">الوكيل المستقل</a></li>
+                <li><a href="#contact">الدعم والاتصال</a></li>
+            </ul>
+            <select class="lang-selector" id="languageSelect">
+                <option value="ar">العربية</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">المنصة العالمية للذكاء الاصطناعي <span>والأمن السيبراني</span></h1>
+        <p class="hero-desc">تحليلات موثوقة، تقارير دولية حصرية، ودورات متقدمة تدار وتستخرج بالكامل عبر وكيل الذكاء الاصطناعي المستقل APTIVRA AI Engine.</p>
+        <div class="hero-btns">
+            <a href="#intel" class="btn-primary"><i class="fa-solid fa-newspaper"></i> تصفح التقارير الحصرية</a>
+            <a href="#courses" class="btn-secondary"><i class="fa-solid fa-graduation-cap"></i> متجر الدورات المتقدمة</a>
+        </div>
+    </section>
+
+    <!-- Google AdSense Placeholder 1 -->
+    <div class="ad-banner">
+        <i class="fa-solid fa-rectangle-ad"></i> المساحة الإعلانية المجهزة - Google AdSense Zone 1
+    </div>
+
+    <!-- Agent Live Dashboard -->
+    <div class="agent-status-box" id="agent">
+        <div class="status-badge">
+            <div class="pulse-dot"></div>
+            <span>حالة وكيل الذكاء الاصطناعي (APTIVRA AI Agent): متصل ويعمل تلقائياً</span>
+        </div>
+        <div style="font-size:0.85rem; color: var(--text-muted);">
+            <i class="fa-solid fa-arrows-rotate"></i> المصادر الحالية: NIST, OECD, World Bank, AIR, MIT OCW
+        </div>
+    </div>
+
+    <!-- AI & Cyber Intel Feed Section -->
+    <section id="intel">
+        <h2 class="section-title">مركز الأخبار والتقارير التنقيبية الحصرية</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <span class="card-tag">NIST AI RMF 2026</span>
+                <h3 class="card-title">إطار إدارة مخاطر الذكاء الاصطناعي والأمن السيبراني</h3>
+                <p class="card-desc">دراسة استراتيجية مستخلصة من أوراق المعهد الوطني للمعايير والتكنولوجيا حول الحوكمة الرقمية وتأمين خوارزميات التعلم العميق.</p>
+                <a href="#" class="btn-secondary" style="display:inline-block; padding:8px 16px; font-size:0.85rem;">قراءة التقرير الكامل</a>
+            </div>
+            <div class="card">
+                <span class="card-tag">OECD Global Report</span>
+                <h3 class="card-title">سياسات الذكاء الاصطناعي واستشراف مستقبل العمل</h3>
+                <p class="card-desc">تقرير تحليلي يعيد صياغة توصيات منظمة التعاون الاقتصادي والتنمية في إعادة هيكلة المهارات الرقمية وحماية البيانات.</p>
+                <a href="#" class="btn-secondary" style="display:inline-block; padding:8px 16px; font-size:0.85rem;">قراءة التقرير الكامل</a>
+            </div>
+            <div class="card">
+                <span class="card-tag">World Bank & AIR</span>
+                <h3 class="card-title">التحول الرقمي والتمكين الاقتصادي عبر المهارات الحديثة</h3>
+                <p class="card-desc">تحليل ميداني من أوراق البنك الدولي والتحالف الدولي للابتكار حول تأثير الذكاء الاصطناعي في أسواق العمل النامية.</p>
+                <a href="#" class="btn-secondary" style="display:inline-block; padding:8px 16px; font-size:0.85rem;">قراءة التقرير الكامل</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google AdSense Placeholder 2 -->
+    <div class="ad-banner">
+        <i class="fa-solid fa-rectangle-ad"></i> المساحة الإعلانية المجهزة - Google AdSense Zone 2
+    </div>
+
+    <!-- Marketplace / Courses Section -->
+    <section id="courses">
+        <h2 class="section-title">أكاديمية الدورات والورش التدريبية المدفوعة</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <span class="card-tag">دورة متقدمة + ملفات عمل</span>
+                <h3 class="card-title">احتراف هندسة الأوامر والوكلاء الذكيين (AI Agents)</h3>
+                <p class="card-desc">دورة تطبيقية من المحتوى المعاد صياغته من MIT OpenCourseWare لبناء وكلاء ذكاء اصطناعي للشركات والأفراد.</p>
+                <div class="price-tag">$49.99</div>
+                <a href="https://paypal.me/lahcenafaadas197" target="_blank" class="paypal-btn"><i class="fa-brands fa-paypal"></i> الشراء المباشر عبر PayPal</a>
+            </div>
+            <div class="card">
+                <span class="card-tag">شهادة تطبيقية</span>
+                <h3 class="card-title">أساسيات الأمن السيبراني وحماية البنية التحتية</h3>
+                <p class="card-desc">دورة شاملة تغطي الأمن السيبراني المؤسسي، اختبار الاختراق الأخلاقي، وإدارة الثغرات بناءً على معايير NIST.</p>
+                <div class="price-tag">$79.99</div>
+                <a href="https://paypal.me/lahcenafaadas197" target="_blank" class="paypal-btn"><i class="fa-brands fa-paypal"></i> الشراء المباشر عبر PayPal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Support Form -->
+    <section id="contact">
+        <h2 class="section-title">التواصل والدعم الفني</h2>
+        <div class="contact-container">
+            <form action="mailto:aliabusing1@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" name="name" required placeholder="أدخل اسمك الكريم">
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني:</label>
+                    <input type="email" name="email" required placeholder="example@domain.com">
+                </div>
+                <div class="form-group">
+                    <label>رسالتك أو استفسارك:</label>
+                    <textarea name="message" rows="5" required placeholder="اكتب تفاصيل استفسارك هنا..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">إرسال الرسالة إلى الدعم الفني</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/lahcen-afaadas-7a1490253" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61580399267891" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/globa_lmix?stkn=eHRvdXV6OHFhNWo3" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">جميع الحقوق محفوظة © 2026 - منصة APTIVRA التكنولوجية | إدارة وتنفيذ الوكيل الذكي المستقل</p>
+        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 5px;">بريد الدعم والاتصال: aliabusing1@gmail.com | بريد التسويات المالية: lahcenafaadas6@gmail.com</p>
+    </footer>
+
+    <script>
+        // Language Selector Switcher Demo
+        document.getElementById('languageSelect').addEventListener('change', function(e) {
+            const lang = e.target.value;
+            if(lang === 'en') {
+                document.dir = 'ltr';
+                alert('Language switched to English. APTIVRA Auto-Agent will display English content feed.');
+            } else if(lang === 'ar') {
+                document.dir = 'rtl';
+            } else {
+                alert('Selected Language Code: ' + lang.toUpperCase() + '. Content translation agent activated.');
+            }
+        });
+    </script>
+</body>
+</html>
