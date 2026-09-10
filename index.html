@@ -3,92 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APTIVRA - الذكاء الاصطناعي والأمن السيبراني | AI & Cybersecurity Hub</title>
-    <meta name="description" content="منصة APTIVRA العالمية الرائدة في تحليلات الذكاء الاصطناعي، الأمن السيبراني، والدورات المتقدمة المعتمدة على تقارير عالمية موثوقة.">
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <title>APTIVRA - المنصة العالمية للتكنولوجيا والأمن السيبراني</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --bg-primary: #0a0f1d;
-            --bg-secondary: #121a2d;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --accent-cyan: #00f2fe;
-            --accent-blue: #4facfe;
-            --accent-purple: #7f00ff;
-            --accent-green: #00e676;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --font-family: 'Cairo', sans-serif;
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --card-bg: #21262d;
+            --card-border: #30363d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent-cyan: #58a6ff;
+            --accent-green: #3fb950;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: var(--font-family);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: var(--bg-primary);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         /* Header & Navigation */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(10, 15, 29, 0.85);
-            backdrop-filter: blur(12px);
+            background: var(--bg-secondary);
             border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo-box {
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .logo-box i {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            font-weight: 800;
             color: var(--accent-cyan);
-        }
-
-        .logo-text {
-            font-size: 1.6rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
             list-style: none;
+            gap: 20px;
         }
 
         .nav-links a {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.95rem;
             font-weight: 600;
             transition: color 0.3s ease;
         }
@@ -98,99 +75,88 @@
         }
 
         .lang-selector {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             color: var(--text-main);
             border: 1px solid var(--card-border);
-            padding: 5px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 6px;
         }
 
         /* Hero Section */
         .hero-section {
-            padding: 140px 1.5rem 80px;
-            max-width: 1200px;
-            margin: 0 auto;
             text-align: center;
-            position: relative;
+            padding: 80px 1.5rem 40px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero-title {
             font-size: 2.8rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
+            margin-bottom: 20px;
         }
 
         .hero-title span {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-cyan);
         }
 
         .hero-desc {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 800px;
-            margin: 0 auto 2.5rem;
+            margin-bottom: 30px;
         }
 
         .hero-btns {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            color: #000;
-            padding: 12px 28px;
-            border-radius: 30px;
+        .btn-primary, .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-cyan);
+            color: #000;
         }
 
         .btn-secondary {
-            background: transparent;
+            background: var(--card-bg);
             color: var(--text-main);
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
             border: 1px solid var(--card-border);
-            cursor: pointer;
         }
 
         .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-3px);
+            opacity: 0.9;
+            transform: translateY(-2px);
         }
 
-        /* Ad Banner Placeholder */
+        /* Ad Banner */
         .ad-banner {
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--bg-secondary);
             border: 1px dashed var(--card-border);
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
-        /* Agent Status Dashboard */
-        .agent-status-box {
+        /* Status Banner (النشر المباشر والتحديثات) */
+        .status-box {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 20px auto;
             background: var(--bg-secondary);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 15px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -203,6 +169,7 @@
             align-items: center;
             gap: 10px;
             font-weight: 700;
+            color: var(--accent-green);
         }
 
         .pulse-dot {
@@ -225,7 +192,6 @@
             text-align: center;
             font-size: 2rem;
             margin: 60px 0 30px;
-            position: relative;
         }
 
         .cards-grid {
@@ -241,15 +207,16 @@
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 16px;
-            padding: 20px;
+            padding: 25px;
             transition: all 0.3s ease;
-            position: relative;
-            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
             border-color: var(--accent-cyan);
-            transform: translateY(-50px);
+            transform: translateY(-5px);
         }
 
         .card-tag {
@@ -264,11 +231,12 @@
         .card-title {
             font-size: 1.25rem;
             margin-bottom: 10px;
+            color: #fff;
         }
 
         .card-desc {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 20px;
         }
 
@@ -286,7 +254,7 @@
             text-align: center;
             background: #0070ba;
             color: #fff;
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
@@ -297,7 +265,7 @@
             background: #005ea6;
         }
 
-        /* Contact & Support Section */
+        /* Contact Section */
         .contact-container {
             max-width: 600px;
             margin: 40px auto;
@@ -326,6 +294,17 @@
             color: var(--text-main);
         }
 
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-cyan);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
         /* Footer */
         footer {
             background: var(--bg-secondary);
@@ -352,6 +331,17 @@
             color: var(--accent-cyan);
         }
 
+        .footer-credits {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .footer-emails {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
         @media (max-width: 768px) {
             .hero-title { font-size: 2rem; }
             .nav-links { display: none; }
@@ -364,13 +354,13 @@
     <header>
         <div class="nav-container">
             <div class="logo-box">
-                <i class="fa-solid fa-brain-circuit"></i>
+                <i class="fa-solid fa-shield-halved"></i>
                 <div class="logo-text">APTIVRA</div>
             </div>
             <ul class="nav-links">
                 <li><a href="#intel">التقارير والأبحاث</a></li>
                 <li><a href="#courses">الدورات والشهادات</a></li>
-                <li><a href="#agent">الوكيل المستقل</a></li>
+                <li><a href="#about">عن المنصة</a></li>
                 <li><a href="#contact">الدعم والاتصال</a></li>
             </ul>
             <select class="lang-selector" id="languageSelect">
@@ -386,10 +376,8 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <h1 class="hero-title">المنصة العالمية للذكاء الاصطناعي <span>والأمن السيبراني</span></h1>
-        <p class="hero-desc">تحليلات موثوقة، تقارير دولية حصرية، ودورات متقدمة 
-     
-            APTIVRA AI Engine.</p>
+        <h1 class="hero-title">المنصة العالمية للتقنية <span>والأمن السيبراني</span></h1>
+        <p class="hero-desc">تحليلات موثوقة، تقارير دولية حصرية، ودورات متقدمة لإعداد القيادات الرقمية والخبراء.</p>
         <div class="hero-btns">
             <a href="#intel" class="btn-primary"><i class="fa-solid fa-newspaper"></i> تصفح التقارير الحصرية</a>
             <a href="#courses" class="btn-secondary"><i class="fa-solid fa-graduation-cap"></i> متجر الدورات المتقدمة</a>
@@ -401,36 +389,46 @@
         <i class="fa-solid fa-rectangle-ad"></i> المساحة الإعلانية المجهزة - Google AdSense Zone 1
     </div>
 
-    <!-- Agent Live Dashboard -->
-    <div class="agent-status-box" id="agent">
+    <!-- Live Status Box -->
+    <div class="status-box" id="about">
         <div class="status-badge">
-            <div class="pulse-dot"></div>>
+            <div class="pulse-dot"></div>
+            <span>المنصة متصلة ومحدثة مباشرة</span>
         </div>
         <div style="font-size:0.85rem; color: var(--text-muted);">
+            تغطية شاملة لأحدث معايير الحوكمة والأمن الرقمي لعام 2026
         </div>
     </div>
 
-    <!-- AI & Cyber Intel Feed Section -->
+    <!-- Cyber Intel Feed Section -->
     <section id="intel">
         <h2 class="section-title">مركز الأخبار والتقارير التنقيبية الحصرية</h2>
         <div class="cards-grid">
             <div class="card">
-                <span class="card-tag">NIST AI RMF 2026</span>
-                <h3 class="card-title">إطار إدارة مخاطر الذكاء الاصطناعي والأمن السيبراني</h3>
-                <p class="card-desc">دراسة استراتيجية مستخلصة من أوراق المعهد الوطني للمعايير والتكنولوجيا حول الحوكمة الرقمية وتأمين خوارزميات التعلم العميق.</p>
-                <a href="#" class="btn-secondary" style="display:inline-block; padding:8px 16px; font-size:0.85rem;">قراءة التقرير الكامل</a>
+                <div>
+                    <span class="card-tag">NIST AI RMF 2026</span>
+                    <h3 class="card-title">إطار إدارة مخاطر الذكاء الاصطناعي والأمن السيبراني</h3>
+                    <p class="card-desc">دراسة استراتيجية مستخلصة من أوراق المعهد الوطني للمعايير والتكنولوجيا حول الحوكمة الرقمية وتأمين خوارزميات التعلم العميق.</p>
+                </div>
+                <a href="#" class="btn-secondary" style="display:inline-block; padding:8px 16px; font-size:0.85rem; text-align:center;">قراءة التقرير الكامل</a>
             </div>
+
             <div class="card">
-                <span class="card-tag">OECD Global Report</span>
-                <h3 class="card-title">سياسات الذكاء الاصطناعي واستشراف مستقبل العمل</h3>
-                <p class="card-desc">تقرير تحليلي يعيد صياغة توصيات منظمة التعاون الاقتصادي والتنمية في إعادة هيكلة المهارات الرقمية وحماية البيانات.</p>
-                <a href="#" class="btn-secondary" style="display:inline-block; padding:8px 16px; font-size:0.85rem;">قراءة التقرير الكامل</a>
+                <div>
+                    <span class="card-tag">OECD Global Report</span>
+                    <h3 class="card-title">سياسات الذكاء الاصطناعي واستشراف مستقبل العمل</h3>
+                    <p class="card-desc">تقرير تحليلي يعيد صياغة توصيات منظمة التعاون الاقتصادي والتنمية في إعادة هيكلة المهارات الرقمية وحماية البيانات.</p>
+                </div>
+                <a href="#" class="btn-secondary" style="display:inline-block; padding:8px 16px; font-size:0.85rem; text-align:center;">قراءة التقرير الكامل</a>
             </div>
+
             <div class="card">
-                <span class="card-tag">World Bank & AIR</span>
-                <h3 class="card-title">التحول الرقمي والتمكين الاقتصادي عبر المهارات الحديثة</h3>
-                <p class="card-desc">تحليل ميداني من أوراق البنك الدولي والتحالف الدولي للابتكار حول تأثير الذكاء الاصطناعي في أسواق العمل النامية.</p>
-                <a href="#" class="btn-secondary" style="display:inline-block; padding:8px 16px; font-size:0.85rem;">قراءة التقرير الكامل</a>
+                <div>
+                    <span class="card-tag">World Bank & AIR</span>
+                    <h3 class="card-title">التحول الرقمي والتمكين الاقتصادي عبر المهارات الحديثة</h3>
+                    <p class="card-desc">تحليل ميداني من أوراق البنك الدولي والتحالف الدولي للابتكار حول تأثير الأنظمة الحديثة في أسواق العمل النامية.</p>
+                </div>
+                <a href="#" class="btn-secondary" style="display:inline-block; padding:8px 16px; font-size:0.85rem; text-align:center;">قراءة التقرير الكامل</a>
             </div>
         </div>
     </section>
@@ -440,45 +438,54 @@
         <i class="fa-solid fa-rectangle-ad"></i> المساحة الإعلانية المجهزة - Google AdSense Zone 2
     </div>
 
-    <!-- Marketplace / Courses Section -->
+    <!-- Courses Marketplace -->
     <section id="courses">
         <h2 class="section-title">أكاديمية الدورات والورش التدريبية المدفوعة</h2>
         <div class="cards-grid">
             <div class="card">
-                <span class="card-tag">دورة متقدمة + ملفات عمل</span>
-                <h3 class="card-title">احتراف هندسة الأوامر والوكلاء الذكيين (AI Agents)</h3>
-                <p class="card-desc">دورة تطبيقية من المحتوى المعاد صياغته من MIT OpenCourseWare لبناء وكلاء ذكاء اصطناعي للشركات والأفراد.</p>
-                <div class="price-tag">$49.99</div>
-                <a href="https://paypal.me/lahcenafaadas197" target="_blank" class="paypal-btn"><i class="fa-brands fa-paypal"></i> الشراء المباشر عبر PayPal</a>
+                <div>
+                    <span class="card-tag">دورة متقدمة + ملفات عمل</span>
+                    <h3 class="card-title">احتراف هندسة الأوامر والوكلاء الذكيين (AI Agents)</h3>
+                    <p class="card-desc">دورة تطبيقية مُعدّة ومُطوّرة استناداً إلى مناهج MIT OpenCourseWare لبناء وكلاء ذكاء اصطناعي للشركات والأفراد.</p>
+                </div>
+                <div>
+                    <div class="price-tag">$49.99</div>
+                    <a href="https://paypal.me/lahcenafaadas197" target="_blank" class="paypal-btn"><i class="fa-brands fa-paypal"></i> الشراء المباشر عبر PayPal</a>
+                </div>
             </div>
+
             <div class="card">
-                <span class="card-tag">شهادة تطبيقية</span>
-                <h3 class="card-title">أساسيات الأمن السيبراني وحماية البنية التحتية</h3>
-                <p class="card-desc">دورة شاملة تغطي الأمن السيبراني المؤسسي، اختبار الاختراق الأخلاقي، وإدارة الثغرات بناءً على معايير NIST.</p>
-                <div class="price-tag">$79.99</div>
-                <a href="https://paypal.me/lahcenafaadas197" target="_blank" class="paypal-btn"><i class="fa-brands fa-paypal"></i> الشراء المباشر عبر PayPal</a>
+                <div>
+                    <span class="card-tag">شهادة تطبيقية</span>
+                    <h3 class="card-title">أساسيات الأمن السيبراني وحماية البنية التحتية</h3>
+                    <p class="card-desc">دورة شاملة تغطي الأمن السيبراني المؤسسي، اختبار الاختراق الأخلاقي، وإدارة الثغرات بناءً على معايير NIST.</p>
+                </div>
+                <div>
+                    <div class="price-tag">$79.99</div>
+                    <a href="https://paypal.me/lahcenafaadas197" target="_blank" class="paypal-btn"><i class="fa-brands fa-paypal"></i> الشراء المباشر عبر PayPal</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Support Form -->
+    <!-- Contact & Support Section -->
     <section id="contact">
         <h2 class="section-title">التواصل والدعم الفني</h2>
         <div class="contact-container">
-            <form action="mailto:aliabusing1@gmail.com" method="post" enctype="text/plain">
+            <form action="#" method="POST">
                 <div class="form-group">
-                    <label>الاسم الكامل:</label>
-                    <input type="text" name="name" required placeholder="أدخل اسمك الكريم">
+                    <label for="name">الاسم الكامل</label>
+                    <input type="text" id="name" required placeholder="أدخل اسمك">
                 </div>
                 <div class="form-group">
-                    <label>البريد الإلكتروني:</label>
-                    <input type="email" name="email" required placeholder="example@domain.com">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" required placeholder="name@example.com">
                 </div>
                 <div class="form-group">
-                    <label>رسالتك أو استفسارك:</label>
-                    <textarea name="message" rows="5" required placeholder="اكتب تفاصيل استفسارك هنا..."></textarea>
+                    <label for="message">الرسالة</label>
+                    <textarea id="message" rows="5" required placeholder="اكتب استفسارك هنا..."></textarea>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%;">إرسال الرسالة إلى الدعم الفني</button>
+                <button type="submit" class="submit-btn">إرسال الرسالة</button>
             </form>
         </div>
     </section>
@@ -490,23 +497,9 @@
             <a href="https://www.facebook.com/profile.php?id=61580399267891" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://www.instagram.com/globa_lmix?stkn=eHRvdXV6OHFhNWo3" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">جميع الحقوق محفوظة © 2026 - منصة APTIVRA التكنولوجية | إدارة وتنفيذ الوكيل الذكي المستقل</p>
-        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 5px;">بريد الدعم والاتصال: aliabusing1@gmail.com | بريد التسويات المالية: lahcenafaadas6@gmail.com</p>
+        <p class="footer-credits">جميع الحقوق محفوظة © 2026 - منصة APTIVRA التكنولوجية</p>
+        <p class="footer-emails">بريد الدعم والاتصال: aliabusing1@gmail.com | بريد التسويات المالية: lahcenafaadas6@gmail.com</p>
     </footer>
 
-    <script>
-        // Language Selector Switcher Demo
-        document.getElementById('languageSelect').addEventListener('change', function(e) {
-            const lang = e.target.value;
-            if(lang === 'en') {
-                document.dir = 'ltr';
-                alert('Language switched to English. APTIVRA Auto-Agent will display English content feed.');
-            } else if(lang === 'ar') {
-                document.dir = 'rtl';
-            } else {
-                alert('Selected Language Code: ' + lang.toUpperCase() + '. Content translation agent activated.');
-            }
-        });
-    </script>
 </body>
 </html>
