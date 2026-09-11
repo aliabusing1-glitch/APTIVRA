@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APTIVRA — سياسة الاسترجاع</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600&family=Inter:wght@400;500;600;700&family=Markazi+Text:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy-900:#0A0F1E;--navy-800:#0F2044;--paper:#EEF1F6;--ink:#101827;--ink-soft:#4B5670;--gold:#C6A15B;--gold-deep:#9C7B39;--line:rgba(16,24,39,0.10);--line-dark:rgba(255,255,255,0.14);}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;}
+  body[data-lang="ar"]{direction:rtl;font-family:'IBM Plex Sans Arabic',sans-serif;}
+  body[data-lang="en"]{direction:ltr;font-family:'Inter',sans-serif;}
+  body[data-lang="ar"] .serif{font-family:'Markazi Text',serif;}
+  body[data-lang="en"] .serif{font-family:'Newsreader',serif;}
+  body[data-lang="ar"] .en{display:none !important;}
+  body[data-lang="en"] .ar{display:none !important;}
+  a{color:var(--gold-deep);}
+  header{background:var(--navy-900);padding:18px 0;}
+  .nav{max-width:820px;margin-inline:auto;padding-inline:28px;display:flex;justify-content:space-between;align-items:center;}
+  .brand{color:#fff;font-weight:700;font-size:18px;text-decoration:none;display:flex;align-items:center;gap:10px;}
+  .brand-mark{width:26px;height:26px;border:1.5px solid var(--gold);border-radius:2px;position:relative;}
+  .brand-mark::before{content:"";position:absolute;inset:4px;border:1.5px solid var(--gold);opacity:.55;}
+  .langtoggle{display:flex;border:1px solid var(--line-dark);border-radius:20px;overflow:hidden;font-size:13px;}
+  .langtoggle button{background:transparent;border:0;color:#cfd6e6;padding:5px 13px;cursor:pointer;font-family:inherit;}
+  .langtoggle button.active{background:var(--gold);color:var(--navy-900);font-weight:600;}
+  main{max-width:820px;margin-inline:auto;padding:56px 28px 90px;}
+  h1{font-size:34px;color:var(--navy-900);margin-bottom:6px;}
+  .updated{color:var(--ink-soft);font-size:13.5px;margin-bottom:36px;}
+  h2{font-size:19px;color:var(--navy-900);margin-top:34px;margin-bottom:10px;border-top:2px solid var(--gold);padding-top:14px;}
+  p,li{color:var(--ink-soft);font-size:15.5px;}
+  ul{padding-inline-start:22px;}
+  footer{background:var(--navy-900);color:#8f9ab3;padding:26px 0;font-size:13px;text-align:center;}
+</style>
+</head>
+<body data-lang="ar">
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>APTIVRA</a>
+    <div class="langtoggle">
+      <button id="btn-ar" class="active" onclick="setLang('ar')">AR</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+<main>
+  <h1 class="serif"><span class="ar">سياسة الاسترجاع</span><span class="en">Refund Policy</span></h1>
+  <div class="updated"><span class="ar">آخر تحديث: سبتمبر 2026</span><span class="en">Last updated: September 2026</span></div>
+
+  <p><span class="ar">نريد أن تكون تجربتك مع دورات APTIVRA مُرضية بالكامل. توضح هذه الصفحة شروط استرجاع المبلغ عند الحاجة.</span><span class="en">We want your experience with APTIVRA courses to be fully satisfactory. This page outlines refund conditions.</span></p>
+
+  <h2><span class="ar">مهلة الاسترجاع</span><span class="en">Refund window</span></h2>
+  <p><span class="ar">يحق لك طلب استرجاع كامل المبلغ خلال 7 أيام من تاريخ الشراء، بشرط ألا تتجاوز نسبة إتمام الدورة 30%.</span><span class="en">You may request a full refund within 7 days of purchase, provided course completion does not exceed 30%.</span></p>
+
+  <h2><span class="ar">كيفية الطلب</span><span class="en">How to request a refund</span></h2>
+  <p><span class="ar">أرسل بريداً إلكترونياً إلى aptivra26@outlook.com يتضمن رقم عملية PayPal وتاريخ الشراء. تتم معالجة الطلبات المستوفية للشروط خلال 3-5 أيام عمل، وتُعاد الأموال عبر PayPal بنفس طريقة الدفع الأصلية.</span><span class="en">Send an email to aptivra26@outlook.com including your PayPal transaction ID and purchase date. Eligible requests are processed within 3-5 business days, refunded via PayPal to the original payment method.</span></p>
+
+  <h2><span class="ar">حالات غير مشمولة</span><span class="en">Exclusions</span></h2>
+  <ul>
+    <li><span class="ar">الطلبات بعد مرور 7 أيام على الشراء.</span><span class="en">Requests submitted after 7 days from purchase.</span></li>
+    <li><span class="ar">الدورات المكتملة بنسبة تفوق 30%.</span><span class="en">Courses completed beyond 30%.</span></li>
+    <li><span class="ar">حالات إساءة استخدام سياسة الاسترجاع (طلبات متكررة على حسابات متعددة).</span><span class="en">Abuse of the refund policy (repeated requests across multiple accounts).</span></li>
+  </ul>
+
+  <h2><span class="ar">التواصل</span><span class="en">Contact</span></h2>
+  <p><span class="ar">لأي استفسار حول الاسترجاع أو الفوترة: aptivra26@outlook.com</span><span class="en">For any refund or billing inquiry: aptivra26@outlook.com</span></p>
+</main>
+<footer><span class="ar">© 2026 APTIVRA</span><span class="en">© 2026 APTIVRA</span></footer>
+<script>
+  function setLang(l){
+    document.body.setAttribute('data-lang', l);
+    document.documentElement.setAttribute('lang', l);
+    document.getElementById('btn-ar').classList.toggle('active', l==='ar');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    try{ localStorage.setItem('aptivra-lang', l); }catch(e){}
+  }
+  (function(){ try{ var s=localStorage.getItem('aptivra-lang'); if(s){setLang(s);} }catch(e){} })();
+</script>
+</body>
+</html>
