@@ -1,557 +1,139 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APTIVRA — تحليل مستقل في الذكاء الاصطناعي والأمن السيبراني</title>
-<meta name="description" content="APTIVRA: منصة تحليل مستقلة تقدّم قراءات تحريرية للسياسات الدولية في الذكاء الاصطناعي والأمن السيبراني، ودورات تطبيقية متخصصة.">
+<title>APTIVRA — AI Workforce Readiness Research Pilot</title>
+<meta name="description" content="APTIVRA is an independent, Morocco-based research pilot testing whether AI literacy actually translates into measurable workplace capability.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=Markazi+Text:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy-900:#0A0F1E;
-    --navy-800:#0F2044;
-    --navy-700:#183768;
-    --navy-600:#24487f;
-    --paper:#EEF1F6;
-    --paper-alt:#FFFFFF;
-    --ink:#101827;
-    --ink-soft:#4B5670;
-    --gold:#C6A15B;
-    --gold-deep:#9C7B39;
-    --teal:#2E6F6E;
-    --line:rgba(16,24,39,0.10);
-    --line-dark:rgba(255,255,255,0.14);
-    --radius:3px;
-    --max:1180px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
-  body[data-lang="ar"]{ direction:rtl; font-family:'IBM Plex Sans Arabic', sans-serif; }
-  body[data-lang="en"]{ direction:ltr; font-family:'Inter', sans-serif; }
-  body[data-lang="ar"] .serif{ font-family:'Markazi Text', serif; }
-  body[data-lang="en"] .serif{ font-family:'Newsreader', serif; }
-  body[data-lang="ar"] .en{ display:none !important; }
-  body[data-lang="en"] .ar{ display:none !important; }
-
-  img,svg{display:block;max-width:100%;}
-  a{color:inherit;text-decoration:none;}
-  ul{margin:0;padding:0;list-style:none;}
-  section{padding:88px 0;}
-  .wrap{max-width:var(--max);margin-inline:auto;padding-inline:28px;}
-  .eyebrow{
-    font-size:13px;
-    color:var(--gold-deep);
-    font-weight:600;
-    margin-bottom:10px;
-    letter-spacing:0.02em;
-  }
-  h1,h2,h3{margin:0 0 0.4em 0;font-weight:600;color:var(--navy-900);}
-  h1{font-size:clamp(32px,4.4vw,52px);line-height:1.18;}
-  h2{font-size:clamp(26px,3vw,36px);line-height:1.25;}
-  h3{font-size:20px;line-height:1.35;}
-  p{margin:0 0 1em 0;color:var(--ink-soft);}
-  .lead{font-size:18px;max-width:60ch;}
-
-  /* ---------- HEADER ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(10,15,30,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line-dark);
-  }
-  .nav{
-    max-width:var(--max);margin-inline:auto;padding:16px 28px;
-    display:flex;align-items:center;justify-content:space-between;gap:24px;
-  }
-  .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:19px;letter-spacing:0.02em;}
-  .brand-mark{
-    width:30px;height:30px;border:1.5px solid var(--gold);
-    border-radius:2px;position:relative;flex:none;
-  }
-  .brand-mark::before{
-    content:"";position:absolute;inset:5px;border:1.5px solid var(--gold);opacity:0.55;
-  }
-  .navlinks{display:flex;gap:30px;font-size:15px;color:#cfd6e6;}
-  .navlinks a{transition:color .15s;}
-  .navlinks a:hover{color:var(--gold);}
-  .navtools{display:flex;align-items:center;gap:14px;}
-  .langtoggle{
-    display:flex;border:1px solid var(--line-dark);border-radius:20px;overflow:hidden;font-size:13px;
-  }
-  .langtoggle button{
-    background:transparent;border:0;color:#cfd6e6;padding:6px 14px;cursor:pointer;font-family:inherit;
-  }
-  .langtoggle button.active{background:var(--gold);color:var(--navy-900);font-weight:600;}
-  .navburger{display:none;background:none;border:0;color:#fff;font-size:22px;cursor:pointer;}
-  @media (max-width:860px){
-    .navlinks{display:none;}
-    .navburger{display:block;}
-  }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    background:linear-gradient(160deg,var(--navy-900) 0%,var(--navy-800) 55%,var(--navy-700) 100%);
-    color:#fff;padding:80px 0 90px;
-  }
-  .hero .wrap{display:grid;grid-template-columns:1.25fr 0.85fr;gap:56px;align-items:start;}
-  @media (max-width:920px){ .hero .wrap{grid-template-columns:1fr;} }
-  .hero h1{color:#fff;}
-  .hero .eyebrow{color:var(--gold);}
-  .hero .lead{color:#c7cfe0;}
-  .hero-ctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:2px;
-    font-size:15px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:all .15s;
-  }
-  .btn-gold{background:var(--gold);color:var(--navy-900);}
-  .btn-gold:hover{background:#d8b46f;}
-  .btn-ghost{border-color:rgba(255,255,255,0.3);color:#fff;}
-  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
-  .btn-navy{background:var(--navy-800);color:#fff;}
-  .btn-navy:hover{background:var(--navy-700);}
-
-  .cadence{margin-top:34px;font-size:13px;color:#8f9ab3;display:flex;align-items:center;gap:8px;}
-  .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none;}
-
-  .briefing{
-    background:rgba(255,255,255,0.04);border:1px solid var(--line-dark);border-radius:3px;padding:22px;
-  }
-  .briefing h3{color:#fff;font-size:15px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
-  .briefing h3 .dot{background:var(--gold);}
-  .briefing-item{padding:14px 0;border-top:1px solid var(--line-dark);}
-  .briefing-item:first-of-type{border-top:0;padding-top:0;}
-  .briefing-tag{font-size:12px;color:var(--gold);margin-bottom:5px;}
-  .briefing-item p{color:#dfe4ee;font-size:14.5px;margin:0;}
-
-  /* ---------- SECTION HEADERS ---------- */
-  .sec-head{max-width:70ch;margin-bottom:44px;}
-  .sec-head.center{margin-inline:auto;text-align:center;}
-
-  /* ---------- REPORTS ---------- */
-  .report-row{
-    border-top:1px solid var(--line);
-    padding:30px 0;
-    display:grid;grid-template-columns:220px 1fr;gap:32px;
-  }
-  .report-row:last-child{border-bottom:1px solid var(--line);}
-  @media (max-width:760px){ .report-row{grid-template-columns:1fr;gap:10px;} }
-  .report-meta{color:var(--ink-soft);font-size:13.5px;}
-  .report-meta .src{display:block;color:var(--navy-800);font-weight:600;margin-bottom:6px;}
-  .report-title{margin-bottom:10px;}
-  .report-summary{max-width:62ch;}
-  .toggle-link{
-    color:var(--gold-deep);font-weight:600;font-size:14.5px;cursor:pointer;border-bottom:1px solid var(--gold-deep);
-    display:inline-block;
-  }
-  .report-full{
-    display:none;margin-top:18px;padding-inline-start:20px;border-inline-start:2px solid var(--gold);
-    max-width:64ch;
-  }
-  .report-full.open{display:block;}
-  .report-full p{color:var(--ink-soft);}
-  .disclaimer{
-    font-size:12.5px;color:#8a93a8;font-style:italic;margin-top:14px;
-  }
-
-  /* ---------- COURSES ---------- */
-  .courses{background:var(--navy-900);color:#fff;}
-  .courses .eyebrow{color:var(--gold);}
-  .courses h2{color:#fff;}
-  .courses .sec-head p{color:#aab3c9;}
-  .course-card{
-    background:rgba(255,255,255,0.035);border:1px solid var(--line-dark);border-radius:3px;
-    padding:32px;margin-top:24px;
-  }
-  .course-top{
-    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start;
-    border-bottom:1px solid var(--line-dark);padding-bottom:22px;margin-bottom:22px;
-  }
-  .course-top h3{color:#fff;font-size:22px;max-width:44ch;}
-  .course-badge{font-size:12.5px;color:var(--gold);margin-bottom:8px;}
-  .price{font-size:26px;font-weight:700;color:var(--gold);white-space:nowrap;}
-  .price span{font-size:13px;color:#8f9ab3;font-weight:500;display:block;}
-  .course-body{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;}
-  @media (max-width:760px){ .course-body{grid-template-columns:1fr;} }
-  .curriculum{counter-reset:mod;}
-  .curriculum li{
-    counter-increment:mod;display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--line-dark);font-size:14.5px;color:#dfe4ee;
-  }
-  .curriculum li:first-child{border-top:0;}
-  .curriculum li::before{
-    content:counter(mod,decimal-leading-zero);color:var(--gold);font-weight:700;flex:none;width:26px;
-  }
-  .course-facts{font-size:14px;color:#aab3c9;}
-  .course-facts li{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line-dark);}
-  .course-facts li:first-child{border-top:0;}
-  .course-facts span:last-child{color:#fff;font-weight:500;}
-  .course-note{font-size:12.5px;color:#7d879e;font-style:italic;margin-top:16px;}
-  .course-cta{margin-top:20px;}
-
-  /* ---------- ABOUT ---------- */
-  .about .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start;}
-  @media (max-width:860px){ .about .wrap{grid-template-columns:1fr;} }
-  .avatar{
-    width:96px;height:96px;border-radius:50%;background:var(--navy-800);color:var(--gold);
-    display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;margin-bottom:20px;
-    font-family:'Markazi Text', serif;
-  }
-  .about-cred{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
-  .about-cred span{
-    border:1px solid var(--line);border-radius:20px;padding:7px 16px;font-size:13px;color:var(--ink-soft);
-  }
-  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-  @media (max-width:520px){ .pillars{grid-template-columns:1fr;} }
-  .pillar{border-top:2px solid var(--gold);padding-top:14px;}
-  .pillar h3{font-size:17px;}
-  .pillar p{font-size:14.5px;}
-
-  /* ---------- CONTACT ---------- */
-  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
-  @media (max-width:860px){ .contact .wrap{grid-template-columns:1fr;} }
-  form{display:flex;flex-direction:column;gap:16px;}
-  label{font-size:13.5px;color:var(--ink-soft);margin-bottom:6px;display:block;}
-  input,textarea{
-    width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:2px;background:#fff;
-    font-family:inherit;font-size:15px;color:var(--ink);
-  }
-  input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
-  textarea{min-height:130px;resize:vertical;}
-  .contact-info{border-top:2px solid var(--gold);padding-top:18px;}
-  .contact-info li{display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid var(--line);font-size:14.5px;}
-  .contact-info li:first-child{border-top:0;}
-  .contact-info span:first-child{color:var(--ink-soft);}
-  .socials{display:flex;gap:14px;margin-top:20px;}
-  .socials a{
-    width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-soft);
-  }
-  .socials a:hover{border-color:var(--gold);color:var(--gold-deep);}
-
-  /* ---------- FOOTER ---------- */
-  footer{background:var(--navy-900);color:#8f9ab3;padding:44px 0 30px;font-size:13.5px;}
-  footer .wrap{display:flex;flex-direction:column;gap:18px;}
-  .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-bottom:1px solid var(--line-dark);padding-bottom:20px;}
-  .foot-links{display:flex;gap:22px;flex-wrap:wrap;}
-  .foot-links a:hover{color:var(--gold);}
-  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-
-  .accent-line{width:44px;height:2px;background:var(--gold);margin-bottom:18px;}
-
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body data-lang="ar">
+<body>
 
-<header>
-  <div class="nav">
-    <a href="#top" class="brand"><span class="brand-mark"></span>APTIVRA</a>
-    <nav class="navlinks">
-      <a href="#reports"><span class="ar">التقارير والتحليلات</span><span class="en">Reports</span></a>
-      <a href="#courses"><span class="ar">الدورات</span><span class="en">Courses</span></a>
-      <a href="#about"><span class="ar">عن المنصة</span><span class="en">About</span></a>
-      <a href="#contact"><span class="ar">التواصل</span><span class="en">Contact</span></a>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo logo-badge"><img src="logo.png" alt="APTIVRA — From AI Learning to Measurable Workplace Capability"></a>
+    <button class="nav-toggle" aria-label="فتح القائمة">القائمة</button>
+    <nav class="main-nav">
+      <a href="index.html" aria-current="page">الرئيسية</a>
+      <a href="research.html">المنهجية</a>
+      <a href="publications.html">المنشورات</a>
+      <a href="partnership.html">الشراكة</a>
+      <a href="about.html">عن المبادرة</a>
+      <a href="contact.html">تواصل</a>
     </nav>
-    <div class="navtools">
-      <div class="langtoggle">
-        <button id="btn-ar" class="active" onclick="setLang('ar')">AR</button>
-        <button id="btn-en" onclick="setLang('en')">EN</button>
-      </div>
-    </div>
   </div>
 </header>
 
-<section class="hero" id="top">
+<section class="hero">
   <div class="wrap">
-    <div>
-      <div class="eyebrow"><span class="ar">تحليل مستقل · ذكاء اصطناعي وأمن سيبراني</span><span class="en">Independent Analysis · AI &amp; Cybersecurity</span></div>
-      <h1 class="serif">
-        <span class="ar">قراءة تحريرية مستقلة لأحدث سياسات الذكاء الاصطناعي والأمن الرقمي</span>
-        <span class="en">Independent editorial coverage of AI policy and digital security</span>
-      </h1>
-      <p class="lead">
-        <span class="ar">نتابع التقارير والسياسات الدولية الصادرة عن جهات بحثية ومؤسسات دولية، ونقدّم تحليلاً تحريرياً مبسطاً بالعربية، إلى جانب دورات تطبيقية موجّهة لصناع القرار الرقمي والمهتمين بالأمن السيبراني.</span>
-        <span class="en">We track international reports and AI policy developments and turn them into clear, independent editorial analysis — alongside applied courses for digital decision-makers and cybersecurity learners.</span>
-      </p>
-      <div class="hero-ctas">
-        <a href="#reports" class="btn btn-gold"><span class="ar">تصفح التقارير</span><span class="en">Browse reports</span></a>
-        <a href="#courses" class="btn btn-ghost"><span class="ar">استكشف الدورات</span><span class="en">Explore courses</span></a>
-      </div>
-      <div class="cadence"><span class="dot"></span>
-        <span class="ar">تحليلات جديدة تُنشر أسبوعياً — آخر تحديث: سبتمبر 2026</span>
-        <span class="en">New analysis published weekly — last updated September 2026</span>
-      </div>
+    <p class="eyebrow">مبادرة بحثية مستقلة — المغرب</p>
+    <h1>هل يتحسّن أداء الموظف فعلاً عندما يتعلّم استخدام الذكاء الاصطناعي؟</h1>
+    <div class="equation">الإلمام بالذكاء الاصطناعي <b>لا يساوي</b> الكفاءة الفعلية في مكان العمل</div>
+    <p class="lede">APTIVRA مبادرة بحثية تختبر هذا الفرق بشكل منهجي: من التدريب على أدوات الذكاء الاصطناعي إلى قياس أثره الحقيقي على الأداء الوظيفي، عبر بروتوكول ميداني قابل للتكرار يبدأ من المغرب.</p>
+    <div class="hero-actions">
+      <a href="publications.html" class="btn btn-gold">اطّلع على البريف البحثي</a>
+      <a href="partnership.html" class="btn btn-outline">كن شريكاً بحثياً</a>
     </div>
+  </div>
+</section>
 
-    <div class="briefing">
-      <h3><span class="dot"></span><span class="ar">آخر التحليلات</span><span class="en">Latest briefings</span></h3>
-      <div class="briefing-item">
-        <div class="briefing-tag"><span class="ar">حوكمة الذكاء الاصطناعي</span><span class="en">AI Governance</span></div>
-        <p><span class="ar">قراءة في إطار إدارة مخاطر الذكاء الاصطناعي وأثره على المؤسسات</span><span class="en">Reading the AI risk-management framework and its impact on institutions</span></p>
+<section>
+  <div class="wrap">
+    <p class="label">الإطار</p>
+    <hr class="rule">
+    <h2 class="title">إطار عمل أكاديمي، لا عرض تسويقي</h2>
+    <p class="intro">تتزايد وتيرة تبنّي أدوات الذكاء الاصطناعي داخل المؤسسات أسرع من قدرة هذه المؤسسات على قياس ما إذا كان الموظفون يستخدمونها بفعالية ومسؤولية. تقترح APTIVRA سدّ هذه الفجوة عبر تجربة بحثية ميدانية، وليس عبر أدوات تسويقية أو استشارية جاهزة.</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>شراكة أكاديمية</h3>
+        <p>مبنية على التعاون مع باحثين ومؤسسات أكاديمية، لا على بيع خدمات استشارية.</p>
       </div>
-      <div class="briefing-item">
-        <div class="briefing-tag"><span class="ar">مستقبل العمل</span><span class="en">Future of Work</span></div>
-        <p><span class="ar">سياسات إعادة تأهيل المهارات في ظل انتشار الذكاء الاصطناعي</span><span class="en">Reskilling policy in an AI-driven labour market</span></p>
+      <div class="card">
+        <h3>من المغرب إلى إفريقيا</h3>
+        <p>نقطة انطلاق ميدانية في المغرب، بمسار توسّع محتمل نحو شمال إفريقيا ثم الجنوب العالمي.</p>
       </div>
-      <div class="briefing-item">
-        <div class="briefing-tag"><span class="ar">التحول الرقمي</span><span class="en">Digital Transformation</span></div>
-        <p><span class="ar">المهارات الرقمية كرافعة للتمكين الاقتصادي في الأسواق الناشئة</span><span class="en">Digital skills as a lever for economic empowerment in emerging markets</span></p>
+      <div class="card">
+        <h3>باحث مستقل</h3>
+        <p>مبادرة يقودها باحث مستقل، بشفافية كاملة حول طبيعتها ونطاقها الحالي.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= REPORTS ================= -->
-<section id="reports">
+<section class="section-alt">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow"><span class="ar">مركز التحليلات</span><span class="en">Analysis Desk</span></div>
-      <h2 class="serif"><span class="ar">التقارير والتحليلات</span><span class="en">Reports &amp; Analysis</span></h2>
-      <p><span class="ar">تحليلات تحريرية مستقلة تستند إلى تقارير وسياسات صادرة عن جهات بحثية ومؤسسات دولية معروفة. هذه القراءات من إعداد فريق APTIVRA، وهي غير صادرة عن الجهات المذكورة ولا تمثلها رسمياً.</span><span class="en">Independent editorial readings grounded in publicly known frameworks and policy reports. These analyses are produced by the APTIVRA team and are not issued by, or affiliated with, the organizations referenced.</span></p>
-    </div>
-
-    <div class="report-list">
-      <div class="report-row">
-        <div class="report-meta"><span class="src"><span class="ar">مرجع: NIST AI RMF</span><span class="en">Reference: NIST AI RMF</span></span><span class="ar">حوكمة الذكاء الاصطناعي · سبتمبر 2026</span><span class="en">AI Governance · September 2026</span></div>
-        <div>
-          <h3 class="report-title"><span class="ar">إطار إدارة مخاطر الذكاء الاصطناعي: قراءة تطبيقية للمؤسسات</span><span class="en">The AI Risk Management Framework: A Practical Reading for Institutions</span></h3>
-          <p class="report-summary"><span class="ar">قراءتنا في الإطار المعروف الذي بنته وكالة NIST الأمريكية حول وظائفه الأربع الأساسية، وكيف يمكن لمؤسسة تقنية أو حكومية متوسطة الحجم أن تبدأ في تطبيقه دون موارد ضخمة.</span><span class="en">Our reading of the well-known NIST framework's four core functions, and how a mid-sized organization can begin applying it without heavy resources.</span></p>
-          <span class="toggle-link" onclick="toggleReport(this)"><span class="ar">قراءة التحليل الكامل</span><span class="en">Read full analysis</span></span>
-          <div class="report-full">
-            <p><span class="ar">يقوم الإطار على أربع وظائف متكاملة: الحوكمة (Govern) لبناء ثقافة مساءلة حول أنظمة الذكاء الاصطناعي، رسم الخريطة (Map) لفهم سياق الاستخدام ومخاطره المحتملة، القياس (Measure) لتقييم الأداء والانحيازات والثغرات الأمنية بمؤشرات قابلة للتتبع، وأخيراً الإدارة (Manage) لتحديد أولويات الاستجابة للمخاطر المرصودة.</span><span class="en">The framework rests on four interlocking functions: Govern, to build an accountability culture around AI systems; Map, to understand the context of use and potential risks; Measure, to evaluate performance, bias, and security gaps with trackable indicators; and Manage, to prioritize responses to identified risks.</span></p>
-            <p><span class="ar">الخلاصة العملية لمؤسسة تبدأ للتو: لا حاجة لتطبيق الإطار كاملاً دفعة واحدة. البداية الواقعية هي حصر أنظمة الذكاء الاصطناعي المستخدمة فعلياً، ثم تصنيفها حسب درجة الخطورة، ثم وضع نقطة مسؤولية واحدة واضحة لكل نظام قبل التوسع في القياس والإدارة.</span><span class="en">The practical takeaway for an organization just starting out: there is no need to apply the full framework at once. A realistic first step is to inventory the AI systems actually in use, classify them by risk level, and assign one clear point of accountability per system before expanding into measurement and management.</span></p>
-          </div>
-          <p class="disclaimer"><span class="ar">تحليل تحريري مستقل من فريق APTIVRA — غير صادر عن NIST ولا يمثلها.</span><span class="en">Independent editorial analysis by the APTIVRA team — not issued by or representing NIST.</span></p>
-        </div>
+    <p class="label">البروتوكول</p>
+    <hr class="rule">
+    <h2 class="title">من القياس الأساسي إلى الدليل العلمي</h2>
+    <p class="intro">خمس مراحل متسلسلة تختبر الفرضية الأساسية ميدانياً، من نقطة الانطلاق إلى النتيجة القابلة للنشر.</p>
+    <div class="protocol">
+      <div class="step">
+        <div class="num">01</div>
+        <h4>القياس الأساسي</h4>
+        <p>تقييم المستوى الحالي قبل أي تدخّل تدريبي.</p>
       </div>
-
-      <div class="report-row">
-        <div class="report-meta"><span class="src"><span class="ar">مرجع: تقارير OECD</span><span class="en">Reference: OECD reports</span></span><span class="ar">مستقبل العمل · سبتمبر 2026</span><span class="en">Future of Work · September 2026</span></div>
-        <div>
-          <h3 class="report-title"><span class="ar">سياسات الذكاء الاصطناعي ومستقبل العمل: ما الذي يتغيّر فعلاً؟</span><span class="en">AI Policy and the Future of Work: What's Actually Changing?</span></h3>
-          <p class="report-summary"><span class="ar">تحليل للاتجاهات المتكررة في تقارير منظمة التعاون الاقتصادي والتنمية حول إعادة تأهيل المهارات، وأثرها على أسواق العمل في الدول متوسطة الدخل.</span><span class="en">An analysis of recurring themes across OECD policy reports on reskilling, and their implications for labour markets in middle-income economies.</span></p>
-          <span class="toggle-link" onclick="toggleReport(this)"><span class="ar">قراءة التحليل الكامل</span><span class="en">Read full analysis</span></span>
-          <div class="report-full">
-            <p><span class="ar">الاتجاه الأبرز في هذه التقارير ليس فقدان الوظائف بحد ذاته، بل إعادة تشكيل المهام داخل الوظيفة الواحدة: المهام الروتينية تُؤتمت تدريجياً، بينما تزداد قيمة المهارات التي يصعب أتمتتها — الحكم المهني، التواصل، وحل المشكلات غير المألوفة.</span><span class="en">The dominant theme across these reports is not job loss per se, but task reshaping within existing roles: routine tasks are gradually automated, while skills that resist automation — professional judgment, communication, and non-routine problem-solving — grow in relative value.</span></p>
-            <p><span class="ar">بالنسبة للسياسات العامة، تتكرر توصية واحدة بثبات: الاستثمار في التدريب المستمر أثناء العمل أكثر فعالية من برامج إعادة التأهيل بعد فقدان الوظيفة. وهذا له انعكاس مباشر على كيفية تصميم برامج تطوير الموظفين داخل المؤسسات.</span><span class="en">On the policy side, one recommendation recurs consistently: investing in continuous on-the-job training is more effective than reskilling programmes launched after job loss — a finding with direct implications for how organizations design employee development programmes.</span></p>
-          </div>
-          <p class="disclaimer"><span class="ar">تحليل تحريري مستقل من فريق APTIVRA — غير صادر عن منظمة OECD ولا يمثلها.</span><span class="en">Independent editorial analysis by the APTIVRA team — not issued by or representing the OECD.</span></p>
-        </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h4>التدخّل</h4>
+        <p>برنامج تدريبي مركّز على استخدام أدوات الذكاء الاصطناعي في العمل الفعلي.</p>
       </div>
-
-      <div class="report-row">
-        <div class="report-meta"><span class="src"><span class="ar">مرجع: تقارير البنك الدولي</span><span class="en">Reference: World Bank reports</span></span><span class="ar">التحول الرقمي · سبتمبر 2026</span><span class="en">Digital Transformation · September 2026</span></div>
-        <div>
-          <h3 class="report-title"><span class="ar">المهارات الرقمية كرافعة للتمكين الاقتصادي في الأسواق الناشئة</span><span class="en">Digital Skills as a Lever for Economic Empowerment in Emerging Markets</span></h3>
-          <p class="report-summary"><span class="ar">قراءة في العلاقة بين انتشار المهارات الرقمية الأساسية وتحسّن فرص التوظيف في اقتصادات شمال إفريقيا والشرق الأوسط.</span><span class="en">A look at the link between basic digital-skill adoption and improved employment outcomes across North Africa and the Middle East.</span></p>
-          <span class="toggle-link" onclick="toggleReport(this)"><span class="ar">قراءة التحليل الكامل</span><span class="en">Read full analysis</span></span>
-          <div class="report-full">
-            <p><span class="ar">تُظهر تحليلات التحول الرقمي في الأسواق الناشئة أن الفجوة الحقيقية ليست غالباً في البنية التحتية للاتصال، بل في المهارات الرقمية التطبيقية للأفراد والمؤسسات الصغيرة. الوصول إلى الإنترنت وحده لا يترجم تلقائياً إلى إنتاجية أعلى.</span><span class="en">Digital-transformation analysis in emerging markets consistently shows that the real gap is rarely connectivity infrastructure — it is applied digital literacy among individuals and small institutions. Internet access alone does not automatically translate into higher productivity.</span></p>
-            <p><span class="ar">بالنسبة للمغرب وشمال إفريقيا تحديداً، تبرز فرصة مضاعفة: قاعدة شبابية كبيرة نسبياً، وتكلفة تبنٍ منخفضة مقارنة بأسواق أكثر نضجاً، ما يجعل برامج التدريب المركّزة على الذكاء الاصطناعي التطبيقي استثماراً ذا عائد سريع نسبياً على مستوى التوظيف الفردي.</span><span class="en">For Morocco and North Africa specifically, a compound opportunity emerges: a relatively large youth base combined with a lower adoption cost than more mature markets — making focused, applied-AI training a comparatively fast-payoff investment at the individual employment level.</span></p>
-          </div>
-          <p class="disclaimer"><span class="ar">تحليل تحريري مستقل من فريق APTIVRA — غير صادر عن مجموعة البنك الدولي ولا يمثلها.</span><span class="en">Independent editorial analysis by the APTIVRA team — not issued by or representing the World Bank Group.</span></p>
-        </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h4>التطبيق الوظيفي</h4>
+        <p>ملاحظة الاستخدام الفعلي للأدوات ضمن مهام العمل اليومية.</p>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <h4>القياس البعدي</h4>
+        <p>إعادة القياس لتحديد التغيّر الفعلي في الأداء والكفاءة.</p>
+      </div>
+      <div class="step final">
+        <div class="num">05</div>
+        <h4>الدليل</h4>
+        <p>نتائج موثّقة قابلة للمراجعة الأكاديمية والنشر.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= COURSES ================= -->
-<section class="courses" id="courses">
+<section class="section-navy">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow"><span class="ar">أكاديمية APTIVRA</span><span class="en">APTIVRA Academy</span></div>
-      <h2 class="serif"><span class="ar">دورات تطبيقية مدفوعة</span><span class="en">Applied paid courses</span></h2>
-      <p><span class="ar">دورات ذاتية التعلم، موجّهة نحو التطبيق المباشر، مع ملفات عمل جاهزة للاستخدام الفوري.</span><span class="en">Self-paced, application-first courses with ready-to-use working files.</span></p>
-    </div>
-
-    <div class="course-card">
-      <div class="course-top">
-        <div>
-          <div class="course-badge"><span class="ar">دورة تطبيقية + ملفات عمل</span><span class="en">Applied course + working files</span></div>
-          <h3><span class="ar">احتراف هندسة الأوامر وبناء الوكلاء الذكيين</span><span class="en">Prompt Engineering &amp; AI Agents, Professional Track</span></h3>
-        </div>
-        <div class="price">$49.99<span><span class="ar">دفعة واحدة</span><span class="en">one-time payment</span></span></div>
+    <div class="grid grid-2">
+      <div class="card">
+        <p class="label">لماذا الآن؟</p>
+        <p>تتسارع وتيرة تبنّي الذكاء الاصطناعي أسرع من قدرة المؤسسات على قياس ما إذا كان الموظفون يستخدمونه بفعالية ومسؤولية — والفجوة تتّسع بصمت.</p>
       </div>
-      <div class="course-body">
-        <ul class="curriculum">
-          <li><span class="ar">أساسيات نماذج اللغة والوكلاء الذكيين</span><span class="en">Foundations of LLMs and AI agents</span></li>
-          <li><span class="ar">مبادئ تصميم الأوامر (Prompt Design)</span><span class="en">Prompt design principles</span></li>
-          <li><span class="ar">استدعاء الأدوات والوظائف (Tool Use)</span><span class="en">Tool use and function calling</span></li>
-          <li><span class="ar">بناء سير عمل كامل لوكيل ذكي</span><span class="en">Building a complete agent workflow</span></li>
-          <li><span class="ar">التقييم واعتبارات السلامة</span><span class="en">Evaluation and safety considerations</span></li>
-          <li><span class="ar">مشروع تطبيقي ختامي</span><span class="en">Capstone project</span></li>
-        </ul>
-        <div>
-          <ul class="course-facts">
-            <li><span><span class="ar">المدة</span><span class="en">Duration</span></span><span><span class="ar">نحو 6 ساعات، ذاتية التعلم</span><span class="en">~6 hours, self-paced</span></span></li>
-            <li><span><span class="ar">اللغة</span><span class="en">Language</span></span><span><span class="ar">العربية</span><span class="en">Arabic</span></span></li>
-          </ul>
-          <div class="course-cta">
-            <a href="https://paypal.me/lahcenafaadas197" class="btn btn-gold" target="_blank" rel="noopener"><span class="ar">الشراء عبر PayPal</span><span class="en">Buy via PayPal</span></a>
-          </div>
-          <p class="course-note"><span class="ar">محتوى مستقل مستوحى من ممارسات تعليمية مفتوحة معروفة عالمياً؛ غير صادر عن أي جامعة أو جهة معتمدة.</span><span class="en">Independent content inspired by globally recognized open educational practices; not issued by any university or accrediting body.</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <div class="course-top">
-        <div>
-          <div class="course-badge"><span class="ar">دورة تطبيقية متقدمة</span><span class="en">Advanced applied course</span></div>
-          <h3><span class="ar">أساسيات الأمن السيبراني وحماية البنية التحتية</span><span class="en">Cybersecurity Fundamentals &amp; Infrastructure Protection</span></h3>
-        </div>
-        <div class="price">$79.99<span><span class="ar">دفعة واحدة</span><span class="en">one-time payment</span></span></div>
-      </div>
-      <div class="course-body">
-        <ul class="curriculum">
-          <li><span class="ar">أساسيات الأمن السيبراني ومشهد التهديدات</span><span class="en">Cybersecurity fundamentals and threat landscape</span></li>
-          <li><span class="ar">أمن الشبكات: المبادئ الأساسية</span><span class="en">Network security essentials</span></li>
-          <li><span class="ar">مقدمة في اختبار الاختراق الأخلاقي</span><span class="en">Introduction to ethical penetration testing</span></li>
-          <li><span class="ar">إدارة الثغرات الأمنية</span><span class="en">Vulnerability management</span></li>
-          <li><span class="ar">أساسيات الاستجابة للحوادث</span><span class="en">Incident response basics</span></li>
-          <li><span class="ar">مشروع تطبيقي: خطة حماية أولية لمؤسسة صغيرة</span><span class="en">Capstone: a baseline protection plan for a small organization</span></li>
-        </ul>
-        <div>
-          <ul class="course-facts">
-            <li><span><span class="ar">المدة</span><span class="en">Duration</span></span><span><span class="ar">نحو 8 ساعات، ذاتية التعلم</span><span class="en">~8 hours, self-paced</span></span></li>
-            <li><span><span class="ar">اللغة</span><span class="en">Language</span></span><span><span class="ar">العربية</span><span class="en">Arabic</span></span></li>
-          </ul>
-          <div class="course-cta">
-            <a href="https://paypal.me/lahcenafaadas197" class="btn btn-gold" target="_blank" rel="noopener"><span class="ar">الشراء عبر PayPal</span><span class="en">Buy via PayPal</span></a>
-          </div>
-          <p class="course-note"><span class="ar">المحتوى مبني على ممارسات معيارية متعارف عليها في القطاع؛ غير معتمد رسمياً من NIST أو أي جهة تنظيمية.</span><span class="en">Content is built on standard industry practice; it is not officially certified by NIST or any regulatory body.</span></p>
-        </div>
+      <div class="card">
+        <p class="label">لماذا المغرب؟</p>
+        <p>بيئة اقتصادية ناشئة تمثّل حالة اختبار ذات دلالة أوسع، ضمن مسار يمتد من المغرب إلى شمال إفريقيا ثم الجنوب العالمي.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section class="about" id="about">
+<section>
   <div class="wrap">
-    <div>
-      <div class="eyebrow"><span class="ar">عن المنصة</span><span class="en">About</span></div>
-      <h2 class="serif"><span class="ar">مبادرة بحثية مستقلة</span><span class="en">An independent research initiative</span></h2>
-      <div class="avatar">LA</div>
-      <p><span class="ar"><strong>لحسن أفعدس</strong> — باحث ومستشار مستقل مقيم بالمغرب، يعمل على قضايا تبني الذكاء الاصطناعي، جاهزية سوق العمل، والوعي بالأمن الرقمي. أسّس APTIVRA كمساحة تحليل مستقلة تترجم التقارير الدولية إلى قراءة عربية واضحة وقابلة للتطبيق.</span>
-          <span class="en"><strong>Lahcen Afaadas</strong> — an independent researcher and consultant based in Morocco, working on AI adoption, workforce readiness, and digital-security awareness. He founded APTIVRA as an independent analysis space that turns international reports into clear, applicable Arabic-language reading.</span></p>
-      <div class="about-cred">
-        <span><span class="ar">مؤسس ومحرر APTIVRA</span><span class="en">Founder &amp; editor, APTIVRA</span></span>
-        <span><span class="ar">مقيم بالمغرب</span><span class="en">Based in Morocco</span></span>
-      </div>
-    </div>
-    <div class="pillars">
-      <div class="pillar">
-        <h3 class="serif"><span class="ar">الاستقلالية</span><span class="en">Independence</span></h3>
-        <p><span class="ar">لا ننتمي لأي جهة نُحلّل تقاريرها. كل تحليل يُعرَّف بوضوح كقراءة تحريرية مستقلة.</span><span class="en">We are not affiliated with any organization we analyze. Every piece is clearly labeled as independent editorial reading.</span></p>
-      </div>
-      <div class="pillar">
-        <h3 class="serif"><span class="ar">التبسيط دون تسطيح</span><span class="en">Clarity without oversimplification</span></h3>
-        <p><span class="ar">نترجم التقارير التقنية إلى لغة عربية واضحة دون فقدان الدقة.</span><span class="en">We translate technical reports into clear Arabic without losing precision.</span></p>
-      </div>
-      <div class="pillar">
-        <h3 class="serif"><span class="ar">التطبيق العملي</span><span class="en">Practical application</span></h3>
-        <p><span class="ar">كل دورة مصممة لإنتاج مهارة قابلة للاستخدام مباشرة في العمل الفعلي.</span><span class="en">Every course is designed to produce a skill you can apply directly in real work.</span></p>
-      </div>
-      <div class="pillar">
-        <h3 class="serif"><span class="ar">الشفافية</span><span class="en">Transparency</span></h3>
-        <p><span class="ar">نوضح دائماً مصدر كل تحليل وحدود ما نمثله رسمياً.</span><span class="en">We always disclose the source of every analysis and the limits of what we officially represent.</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section id="contact">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow"><span class="ar">التواصل والدعم</span><span class="en">Contact &amp; support</span></div>
-      <h2 class="serif"><span class="ar">تواصل معنا</span><span class="en">Get in touch</span></h2>
-      <p><span class="ar">لاستفسارات الدورات والتقارير، أو الدعم الفني، راسلنا مباشرة.</span><span class="en">For course and report questions, or technical support, reach out directly.</span></p>
-      <form action="mailto:aliabusing1@gmail.com" method="post" enctype="text/plain">
-        <div>
-          <label for="name"><span class="ar">الاسم الكامل</span><span class="en">Full name</span></label>
-          <input id="name" name="name" type="text" required>
-        </div>
-        <div>
-          <label for="email"><span class="ar">البريد الإلكتروني</span><span class="en">Email</span></label>
-          <input id="email" name="email" type="email" required>
-        </div>
-        <div>
-          <label for="message"><span class="ar">الرسالة</span><span class="en">Message</span></label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-navy" style="align-self:flex-start;"><span class="ar">إرسال الرسالة</span><span class="en">Send message</span></button>
-      </form>
-    </div>
-    <div>
-      <ul class="contact-info">
-        <li><span><span class="ar">الدعم الفني</span><span class="en">Technical support</span></span><span>aliabusing1@gmail.com</span></li>
-        <li><span><span class="ar">الاستفسارات المالية</span><span class="en">Billing inquiries</span></span><span>aptivra26@outlook.com</span></li>
-      </ul>
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/lahcen-afaadas-7a1490253" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-        <a href="https://www.facebook.com/profile.php?id=61580399267891" target="_blank" rel="noopener" aria-label="Facebook">fb</a>
-        <a href="https://www.instagram.com/globa_lmix?stkn=eHRvdXV6OHFhNWo3" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
-      </div>
+    <blockquote class="pull">"نقترح أن نختبر. نهدف أن نقيس. نسعى أن نولّد الدليل."</blockquote>
+    <p class="intro">نبحث عن الشريك البحثي المناسب لاختبار هذا السؤال معنا.</p>
+    <div class="hero-actions" style="margin-top:30px;">
+      <a href="partnership.html" class="btn btn-outline-dark">استكشف نموذج الشراكة</a>
+      <a href="publications.html" class="btn btn-outline-dark">حمّل التقرير الكامل</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="foot-top">
-      <div class="brand" style="color:#fff;"><span class="brand-mark"></span>APTIVRA</div>
-      <div class="foot-links">
-        <a href="privacy.html"><span class="ar">سياسة الخصوصية</span><span class="en">Privacy Policy</span></a>
-        <a href="terms.html"><span class="ar">شروط الاستخدام</span><span class="en">Terms of Service</span></a>
-        <a href="refund.html"><span class="ar">سياسة الاسترجاع</span><span class="en">Refund Policy</span></a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span><span class="ar">جميع الحقوق محفوظة © 2026 — APTIVRA</span><span class="en">© 2026 APTIVRA. All rights reserved.</span></span>
-      <span><span class="ar">مبادرة بحثية مستقلة يقودها لحسن أفعدس</span><span class="en">An independent research initiative led by Lahcen Afaadas</span></span>
-    </div>
+    <p>© 2026 APTIVRA — مبادرة بحثية مستقلة</p>
+    <nav>
+      <a href="about.html">عن المبادرة</a>
+      <a href="contact.html">تواصل</a>
+    </nav>
   </div>
 </footer>
 
-<script>
-  function setLang(l){
-    document.body.setAttribute('data-lang', l);
-    document.documentElement.setAttribute('lang', l);
-    document.getElementById('btn-ar').classList.toggle('active', l==='ar');
-    document.getElementById('btn-en').classList.toggle('active', l==='en');
-    try{ localStorage.setItem('aptivra-lang', l); }catch(e){}
-  }
-  (function(){
-    try{
-      var saved = localStorage.getItem('aptivra-lang');
-      if(saved){ setLang(saved); }
-    }catch(e){}
-  })();
-  function toggleReport(el){
-    var full = el.nextElementSibling;
-    full.classList.toggle('open');
-    var isOpen = full.classList.contains('open');
-    el.querySelectorAll('.ar,.en').forEach(function(s){});
-    var arSpan = el.querySelector('.ar');
-    var enSpan = el.querySelector('.en');
-    if(isOpen){
-      arSpan.textContent = 'إخفاء التحليل';
-      enSpan.textContent = 'Hide analysis';
-    } else {
-      arSpan.textContent = 'قراءة التحليل الكامل';
-      enSpan.textContent = 'Read full analysis';
-    }
-  }
-</script>
+<script src="script.js"></script>
 </body>
 </html>
