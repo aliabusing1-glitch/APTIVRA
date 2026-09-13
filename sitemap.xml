@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+<url>
+  <loc>https://aptivra.vercel.app/index.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/index.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-index.html"/>
+</url>
+<url>
+  <loc>https://aptivra.vercel.app/en-index.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/index.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-index.html"/>
+</url>
+
+<url>
+  <loc>https://aptivra.vercel.app/research.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/research.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-research.html"/>
+</url>
+<url>
+  <loc>https://aptivra.vercel.app/en-research.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/research.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-research.html"/>
+</url>
+
+<url>
+  <loc>https://aptivra.vercel.app/publications.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/publications.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-publications.html"/>
+</url>
+<url>
+  <loc>https://aptivra.vercel.app/en-publications.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/publications.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-publications.html"/>
+</url>
+
+<url>
+  <loc>https://aptivra.vercel.app/partnership.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/partnership.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-partnership.html"/>
+</url>
+<url>
+  <loc>https://aptivra.vercel.app/en-partnership.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/partnership.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-partnership.html"/>
+</url>
+
+<url>
+  <loc>https://aptivra.vercel.app/about.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/about.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-about.html"/>
+</url>
+<url>
+  <loc>https://aptivra.vercel.app/en-about.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/about.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-about.html"/>
+</url>
+
+<url>
+  <loc>https://aptivra.vercel.app/contact.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/contact.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-contact.html"/>
+</url>
+<url>
+  <loc>https://aptivra.vercel.app/en-contact.html</loc>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://aptivra.vercel.app/contact.html"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://aptivra.vercel.app/en-contact.html"/>
+</url>
+
+</urlset>
